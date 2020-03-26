@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  
+  tomcat:
+    image: ${PROJECT_NAME}/tomcat
+    container_name: ${PROJECT_NAME}-tomcat
+    build:
+      context: "./tomcat"
+      dockerfile: "Dockerfile"
+    ports:
+     - "8080:8080"
+    restart: always
+    volumes:
+     - "./tomcat/webapps:/opt/tomcat/webapps"
+     - "./tomcat/logs:/opt/tomcat/logs"
